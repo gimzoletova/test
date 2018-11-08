@@ -6,7 +6,7 @@ export default class NewPostForm extends Component {
         e.preventDefault();
         let body = document.getElementById("post_body").value.trim();
         if (body.length > 0)
-            Meteor.call('addPost', this.props.group, this.props.user, body);
+            Meteor.call('addPost', this.props.group, Meteor.userId(), body);
             document.getElementById("post_body").value = '';
     }
 

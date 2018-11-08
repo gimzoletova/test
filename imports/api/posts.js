@@ -5,5 +5,8 @@ export const Posts = new Mongo.Collection('posts');
 Meteor.methods ({
     'addPost' (group, user, body) {
         Posts.insert({group, user, body});
+    },
+    'deleteAllPostsOfUser' (userId) {
+        Posts.remove({user: userId});
     }
 });
